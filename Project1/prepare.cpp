@@ -3,10 +3,10 @@
 
 using namespace std;
 
-constexpr auto num = 5;//¶¨Òå³£Á¿ÎäÊ¿ÖÖÀàÊıÄ¿
+constexpr auto num = 5;//å®šä¹‰å¸¸é‡æ­¦å£«ç§ç±»æ•°ç›®
 
-class Headquarter;//Ë¾Áî²¿Àà
-class Warrior//ÎäÊ¿Àà
+class Headquarter;//å¸ä»¤éƒ¨ç±»
+class Warrior//æ­¦å£«ç±»
 {
 private:
 	Headquarter* pHeadquarter;
@@ -23,14 +23,14 @@ class Headquarter
 private:
 	int lifeValue;
 	int color;
-	int warriorcount;//ÎäÊ¿×ÜÊıÁ¿
+	int warriorcount;//æ­¦å£«æ€»æ•°é‡
 	int flag;
 	int cur;
 	Warrior* pWarrior[1000];
-	int warriornum[num];//Ë¾Áî²¿ÄÚÄ³Ò»ÎäÊ¿ÊıÁ¿
+	int warriornum[num];//å¸ä»¤éƒ¨å†…æŸä¸€æ­¦å£«æ•°é‡
 	static int seq[2][num];
 public:
-	friend class Warrior;//¶¨ÒåÓÑÔªÀà·ÃÎÊË½ÓĞ³ÉÔ±±äÁ¿
+	friend class Warrior;//å®šä¹‰å‹å…ƒç±»è®¿é—®ç§æœ‰æˆå‘˜å˜é‡
 	void InitHeadQuarter(int color, int m);
 	int Birth(int Time);
 	string getColor();
@@ -98,13 +98,13 @@ void Headquarter::InitHeadQuarter(int color, int m)
 	{
 		warriornum[i] = 0;
 	}
-}//´´½¨Ë¾Áî²¿
+}//åˆ›å»ºå¸ä»¤éƒ¨
 
 int Headquarter::Birth(int Time)
 {
 	if (flag)
 		return 0;
-	int t = 0;//Ñ­»·ÅĞ¶ÏÉúÃüÖµÊÇ·ñÒÑÎŞ·¨²ú³öÎäÊ¿
+	int t = 0;//å¾ªç¯åˆ¤æ–­ç”Ÿå‘½å€¼æ˜¯å¦å·²æ— æ³•äº§å‡ºæ­¦å£«
 	while (Warrior::value[seq[color][cur]] > lifeValue && t < num)
 	{
 		cur = (cur + 1) % num;
@@ -128,7 +128,7 @@ int Headquarter::Birth(int Time)
 	pWarrior[warriorcount]->Print(Time);
 	warriorcount++;
 	return 1;
-}//Éú²úÎäÊ¿
+}//ç”Ÿäº§æ­¦å£«
 string Headquarter::getColor()
 {
 	if (color)
